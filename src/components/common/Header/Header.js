@@ -19,6 +19,12 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import TopHeader from '../TopHeader/TopHeader';
 import { BeakerIcon } from '@heroicons/react/solid'
 import { Search } from 'heroicons-react';
+import { FiShoppingCart } from 'react-icons/fi';
+import { BiUser } from 'react-icons/bi';
+import {GiHamburgerMenu} from 'react-icons/gi'
+import {FiShoppingBag} from 'react-icons/fi'
+import {IoMdNotificationsOutline} from 'react-icons/io'
+import { Link } from 'react-router-dom';
 
 const solutions = [
   {
@@ -86,19 +92,18 @@ const Header = () => {
     return (
         <div>
           <TopHeader></TopHeader>
+        <div className="mx-24">
+          
         
-        <Popover className="relative bg-white">
+        <Popover className="relative bg-white fixed">
            
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
+        <div className="flex justify-between items-center  border-gray-100 py-3 md:justify-start md:space-x-10">
+          <div className="flex justify-start lg:w-0 lg:flex-1 gap-2">
+            <GiHamburgerMenu className="w-6 h-6 cursor-pointer" />
             <a href="#">
               <span className="sr-only">Workflow</span>
-              <img
-                className="h-8 w-auto sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
-              />
+              <h3 className="text-xl font-medium">Categories</h3>
             </a>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -173,112 +178,46 @@ const Header = () => {
               )}
             </Popover> */}
            
-             <div className=''>
-             <div className="mt-1 relative rounded-md shadow-sm ">
+             <div className='flex gap-4'>
+             <div className="mt-1 relative rounded-md shadow-sm w-full ">
         
         <input
           type='search'
           name="search"
           id="search"
-          className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-0 rounded-md bg-slate-200"
+          className="focus:ring-0 focus:border-orange-500 block w-[35rem] sm:text-sm border-0 rounded-md bg-slate-200 p-3"
           placeholder="Search in daily bazar"
         />
-        <div className="absolute inset-y-0 right-0 flex items-center bg-red-500">
+        <div className="absolute inset-y-0 right-0 pl-4 flex items-center bg-red-500 hover:bg-red-700 cursor-pointer">
           
-     <Search className=''/>
+     <Search className='mr-2 text-white '/>
         </div>
+        
       </div>
+      <FiShoppingCart className="w-8 h-8 mt-4" />
              </div>
-
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+             
+            {/* <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
               Pricing
             </a>
             <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
               Docs
-            </a>
+            </a> */}
 
-            <Popover className="relative">
-              {({ open }) => (
-                <>
-                  <Popover.Button
-                    className={classNames(
-                      open ? 'text-gray-900' : 'text-gray-500',
-                      'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                    )}
-                  >
-                    <span>More</span>
-                    <ChevronDownIcon
-                      className={classNames(
-                        open ? 'text-gray-600' : 'text-gray-400',
-                        'ml-2 h-5 w-5 group-hover:text-gray-500'
-                      )}
-                      aria-hidden="true"
-                    />
-                  </Popover.Button>
-
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-200"
-                    enterFrom="opacity-0 translate-y-1"
-                    enterTo="opacity-100 translate-y-0"
-                    leave="transition ease-in duration-150"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo="opacity-0 translate-y-1"
-                  >
-                    <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                      <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                          {resources.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
-                            >
-                              <item.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
-                              <div className="ml-4">
-                                <p className="text-base font-medium text-gray-900">{item.name}</p>
-                                <p className="mt-1 text-sm text-gray-500">{item.description}</p>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
-                        <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
-                          <div>
-                            <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">Recent Posts</h3>
-                            <ul role="list" className="mt-4 space-y-4">
-                              {recentPosts.map((post) => (
-                                <li key={post.id} className="text-base truncate">
-                                  <a href={post.href} className="font-medium text-gray-900 hover:text-gray-700">
-                                    {post.name}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className="mt-5 text-sm">
-                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                              {' '}
-                              View all posts <span aria-hidden="true">&rarr;</span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </Popover.Panel>
-                  </Transition>
-                </>
-              )}
-            </Popover>
+           
           </Popover.Group>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-              Sign in
-            </a>
-            <a
-              href="#"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-            >
-              Sign up
-            </a>
+          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 gap-8 cursor-pointer">
+            <div className="shadow-md p-4 rounded-full hover:shadow-lg">
+            <Link to="/login"><BiUser className="" /></Link>
+            </div>
+            <div className="shadow-md p-4 rounded-full hover:shadow-lg">
+            <FiShoppingBag />
+            </div>
+            <div className="shadow-md p-4 rounded-full hover:shadow-lg">
+            <IoMdNotificationsOutline />
+            </div>
+            
+           
           </div>
         </div>
       </div>
@@ -363,6 +302,7 @@ const Header = () => {
         </Popover.Panel>
       </Transition>
     </Popover>
+    </div>
     </div>
     );
 };

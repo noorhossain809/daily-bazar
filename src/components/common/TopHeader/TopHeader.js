@@ -6,7 +6,7 @@ const TopHeader = () => {
             <div className='container mx-auto'>
              <ul className="list-unstyled lg:flex justify-center gap-6 uppercase text-xs">
             <li>
-               <a href="tel:09638111666" className='text-red-500'>Save more on app</a>
+               <a href="tel:09638111666" className='text-red-500 hover:underline'>Save more on app</a>
             </li>
             <li>
              <a href="mail-to:support@fvaly.com" className='hover:text-red-500 hover:underline'>Sale on daily bazar</a>
