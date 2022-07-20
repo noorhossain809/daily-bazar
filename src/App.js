@@ -10,6 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 import Login from './components/Login/Login';
+import Footer from './components/common/Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
      </Routes>
      
      <Product></Product>
+     <Footer></Footer>
      
     </BrowserRouter>
   );
