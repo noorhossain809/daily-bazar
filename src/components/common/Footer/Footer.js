@@ -38,7 +38,7 @@ const Footer = () => {
                         <div className="bg-white rounded-lg">
                         <img className="p-2" src={qrScreen} alt="" />
                         </div>
-                        <div className="p-2">
+                        <div className="p-2 ">
                         <GooglePlayStore></GooglePlayStore>
                         <ApplePlayStore></ApplePlayStore>
                         </div>
